@@ -7,7 +7,7 @@
     "postinstall": "npm install --prefix core-ts && npm run build --prefix core-ts",
     "build": "npm run build --prefix core-ts",
     "typecheck": "npm run typecheck --prefix core-ts",
-    "start": "node server.mjs"
+    "start": "node local-server.mjs"
   },
   "engines": {
     "node": ">=20"

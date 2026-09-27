@@ -10,7 +10,7 @@ npm run build
 npm start
 ```
 
-Open `http://localhost:8765`.
+Open `http://localhost:8765`. The local server is `local-server.mjs`; Vercel uses the serverless route in `api/live-scan.mjs`.
 
 ## Vercel deployment
 
