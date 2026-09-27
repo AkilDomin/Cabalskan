@@ -4,8 +4,10 @@ const depths = new Set(['quick', 'standard', 'deep']);
 const mintPattern = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
 
 function json(res, status, body) {
-  res.status(status).setHeader('cache-control', 'no-store');
-  return res.json(body);
+  res.statusCode = status;
+  res.setHeader('content-type', 'application/json; charset=utf-8');
+  res.setHeader('cache-control', 'no-store');
+  res.end(JSON.stringify(body, (_key, value) => typeof value === 'bigint' ? value.toString() : value));
 }
 
 export default async function handler(req, res) {
