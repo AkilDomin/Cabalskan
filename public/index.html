@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CabalScan — Early Wallet Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <main class="shell">
+    <nav class="topbar">
+      <div class="brand"><span class="brand-mark">◉</span><span>Cabal<span>Scan</span></span></div>
+      <div class="nav-note"><i></i> Solana / DEVNET PREVIEW</div>
+      <a class="github" href="#how-it-works">How it works <span>↗</span></a>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">EARLY HOLDER GRAPH · v0.1</div>
+      <h1>See the link<br /><em>before</em> you buy.</h1>
+      <p class="hero-copy">CabalScan finds early-wallet groups that look coordinated rather than organic.</p>
+      <form id="scan-form" class="scan-form">
+        <div class="input-wrap"><span class="input-icon">⌁</span><input id="token-input" autocomplete="off" value="DemoToken7x...cabal" aria-label="Token address" /><span class="chain-pill">SOLANA</span></div>
+        <select id="scan-depth" aria-label="Scan depth" style="background:#13191a;border:1px solid #354142;color:#a9b5b1;border-radius:7px;padding:0 10px;font:11px var(--mono)"><option value="standard">STANDARD</option><option value="quick">QUICK</option><option value="deep">DEEP</option></select>
+        <input id="scan-slot" inputmode="numeric" pattern="[0-9]*" placeholder="Scan at slot (optional)" aria-label="Historical scan slot" style="max-width:170px;background:#13191a;border:1px solid #354142;color:#a9b5b1;border-radius:7px;padding:0 10px;font:11px var(--mono)" />
+        <button type="submit" id="scan-button"><span>Scan token</span><b>↗</b></button>
+      </form>
+      <div class="sample-row"><span>Try a demo:</span><button type="button" data-sample="cabal">suspicious token</button><button type="button" data-sample="clean">clean token</button></div>
+    </section>
+
+    <section id="report" class="report hidden">
+      <div class="report-head"><div><div class="eyebrow">SCAN COMPLETE · 1.8s</div><h2 id="report-title">DemoToken7x...cabal</h2></div><div id="risk-badge" class="risk-badge high"><span class="risk-dot"></span><span id="risk-label">HIGH RISK</span></div></div>
+      <div class="report-grid">
+        <article class="risk-card"><div class="card-kicker">RISK SIGNAL</div><div class="score-row"><div id="risk-score" class="risk-score">84</div><div class="score-max">/100</div></div><div class="meter"><span id="meter-fill"></span></div><p id="risk-summary">Early holders share funding and synchronized buys.</p></article>
+        <article class="stat-card"><div class="card-kicker">LINKED CLUSTER</div><div class="stat-value" id="cluster-size">37</div><div class="stat-label">wallets in group</div><div class="stat-foot"><span class="up">↑ 31</span> bought in first 2 slots</div></article>
+        <article class="stat-card"><div class="card-kicker">EXPOSURE</div><div class="stat-value" id="exposure">44.8<span>%</span></div><div class="stat-label">of initial supply</div><div class="stat-foot"><span class="warn">●</span> above 20% threshold</div></article>
+      </div>
+      <div class="analysis-grid">
+        <article class="panel graph-panel"><div class="panel-head"><div><div class="card-kicker">WALLET RELATIONSHIP MAP</div><h3>Who is connected?</h3></div><div class="legend"><span><i class="legend-node hot"></i> suspicious</span><span><i class="legend-node source"></i> source</span></div></div><div class="graph-wrap"><svg id="graph" viewBox="0 0 720 380" role="img" aria-label="Connected wallet graph"></svg><div class="graph-caption">Links: funding source · same-slot buy · synchronized sell</div></div></article>
+        <article class="panel signals-panel"><div class="card-kicker">DETECTED SIGNALS</div><h3>Why it matters</h3><div id="signals" class="signals"></div><div class="disclaimer"><span>!</span><p>These are risk indicators, not proof of fraud. Always review the source transactions.</p></div></article>
+      </div>
+      <div class="verdict"><div class="verdict-icon">!</div><div><div class="card-kicker">PLAIN-LANGUAGE VERDICT</div><strong id="verdict-text">Do not buy blindly.</strong><p id="verdict-detail">37 wallets received SOL from a shared source before launch and sold most of their positions nearly at the same time.</p></div><a id="explorer-link" href="https://solscan.io" target="_blank" rel="noreferrer">Open in Solscan ↗</a></div>
+    </section>
+
+    <section id="how-it-works" class="how"><div class="section-label">01 / HOW IT WORKS</div><div class="how-grid"><div><h2>We do not promise<br /><span>“certain scam.”</span></h2></div><div class="steps"><div class="step"><span>01</span><div><strong>Collect early actions</strong><p>First buys, funding transfers, and token time windows.</p></div></div><div class="step"><span>02</span><div><strong>Build the relationship graph</strong><p>Find shared sources, similar routes, and synchronized trades.</p></div></div><div class="step"><span>03</span><div><strong>Explain risk to people</strong><p>No score for score’s sake — every warning points to evidence.</p></div></div></div></div></section>
+
+    <footer><span>CabalScan / open investigation tooling</span><span>Built for Solana builders · not financial advice</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
