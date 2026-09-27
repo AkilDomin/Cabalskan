@@ -1,5 +1,3 @@
-import { runForensicScan } from '../core-ts/dist/index.js';
-
 const depths = new Set(['quick', 'standard', 'deep']);
 const mintPattern = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
 
@@ -23,6 +21,7 @@ export default async function handler(req, res) {
   if (scanAtSlot !== undefined && (!Number.isSafeInteger(scanAtSlot) || scanAtSlot <= 0)) return json(res, 400, { error: 'scanAtSlot must be a positive integer', code: 'E003_INVALID_SLOT' });
 
   try {
+    const { runForensicScan } = await import('../core-ts/dist/index.js');
     const result = await runForensicScan(mint, depth, { scanAtSlot });
     return json(res, 200, { ...result, coreRuntime: 'typescript', deployment: 'vercel' });
   } catch (error) {
