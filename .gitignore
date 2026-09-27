@@ -1,0 +1,11 @@
+node_modules/
+core-ts/node_modules/
+dist/
+core-ts/dist/
+.env
+.env.*
+!.env.example
+*.log
+logs/
+coverage/
+.DS_Store
