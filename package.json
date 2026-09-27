@@ -17,8 +17,6 @@
     "@solana/web3.js": "1.95.8"
   },
   "overrides": {
-    "rpc-websockets": {
-      "uuid": "8.3.2"
-    }
+    "rpc-websockets": "7.11.2"
   }
 }
