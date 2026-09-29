@@ -51,7 +51,7 @@ export function transactionHasJitoTip(transaction: ParsedTransactionWithMeta, ti
 
 /** A positive result is Jito-tip evidence, not proof of bundle membership by itself. */
 export async function verifyJitoBundle(connection: Connection, txSignature: string): Promise<boolean> {
-  const transaction = await connection.getParsedTransaction(txSignature, { maxSupportedTransactionVersion: 0 });
+  const transaction = await connection.getParsedTransaction(txSignature, { maxSupportedTransactionVersion: 1 });
   if (!transaction) return false;
   return transactionHasJitoTip(transaction, await getJitoTipAccounts());
 }

@@ -123,7 +123,7 @@ export class CabalForensicAnalyzer {
   private async getTransaction(signature: string): Promise<ParsedTransactionWithMeta | null> {
     const cached = this.transactionCache.get(signature);
     if (cached) return cached;
-    const request = this.rpc.run(() => this.connection.getParsedTransaction(signature, { maxSupportedTransactionVersion: 0 }));
+    const request = this.rpc.run(() => this.connection.getParsedTransaction(signature, { maxSupportedTransactionVersion: 1 }));
     this.transactionCache.set(signature, request);
     return request;
   }
